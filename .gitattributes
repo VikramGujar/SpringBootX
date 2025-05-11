@@ -1,0 +1,9 @@
+# Normalize all text files to LF on commit
+* text=auto
+
+# Optional: explicitly handle common file types
+*.java text eol=lf
+*.xml text eol=lf
+*.properties text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf

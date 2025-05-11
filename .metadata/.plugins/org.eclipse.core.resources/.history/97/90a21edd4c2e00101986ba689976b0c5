@@ -1,0 +1,9 @@
+package com.vik.sbeans;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HelloSpringBoot 
+{
+
+}

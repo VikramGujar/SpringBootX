@@ -1,0 +1,12 @@
+package com.vik.sbeans;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class HelloSpringBoot 
+{
+	public void greeting()
+	{
+		System.out.println("Hello Spring Boot!!!");
+	}
+}
