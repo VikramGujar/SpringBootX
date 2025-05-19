@@ -2,6 +2,8 @@ package com.vik.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -17,6 +19,7 @@ public class NoteAppOperationsOracle implements INoteKeeper
 	@Autowired
 	DataSource ds;
 	private static final String INSERT_TO_NOTEKEEPER = "INSERT INTO NOTEKEEPER VALUES (?,?,?)";
+	private static final String SELECT_ALL_FROM_NOTEKEEPER = "SELECT * FROM NOTEKEEPER";
 
 	
 	@Override
@@ -42,25 +45,47 @@ public class NoteAppOperationsOracle implements INoteKeeper
 	}
 
 	@Override
-	public List<Note> getAllNotes() {
+	public List<Note> getAllNotes() throws Exception {
+		List<Note> list = new ArrayList<Note>();
+		try(
+				Connection con = ds.getConnection();
+				PreparedStatement ps = con.prepareStatement(SELECT_ALL_FROM_NOTEKEEPER)
+		   ){
+				try(ResultSet rs = ps.executeQuery())
+				{
+					while(rs.next())
+					{
+						Note note = new Note();
+						note.setNoteId(rs.getInt(1));
+						note.setNoteHeader(rs.getString(2));
+						note.setNoteContent(rs.getString(3));
+						list.add(note);
+					}
+				}
+			
+		}catch (Exception e) {
+			
+			   e.printStackTrace();
+			   throw e;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public Note getNote(int noteId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Note getNote(int noteId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int deleteNote(int noteId) {
+	public int deleteNote(int noteId) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateNote(int noteId, String newHeading, String newContent) {
+	public int updateNote(int noteId, String newHeading, String newContent) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -1,5 +1,7 @@
 package com.vik.contoller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -15,5 +17,10 @@ public class NoteKeeperController {
 	public int addNoteContoller(Note note) throws Exception
 	{
 		return inks.addNoteService(note);
+	}
+	
+	public List<Note> getAllNotesContoller()throws Exception
+	{
+		return inks.getAllNotesService();
 	}
 }
