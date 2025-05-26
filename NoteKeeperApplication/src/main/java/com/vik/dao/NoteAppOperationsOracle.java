@@ -20,6 +20,7 @@ public class NoteAppOperationsOracle implements INoteKeeper
 	DataSource ds;
 	private static final String INSERT_TO_NOTEKEEPER = "INSERT INTO NOTEKEEPER VALUES (?,?,?)";
 	private static final String SELECT_ALL_FROM_NOTEKEEPER = "SELECT * FROM NOTEKEEPER";
+	private static final String SELECT_ONE_NOTE = "SELECT * FROM NOTEKEEPER WHERE NOTEID=?";
 
 	
 	@Override
@@ -74,8 +75,29 @@ public class NoteAppOperationsOracle implements INoteKeeper
 
 	@Override
 	public Note getNote(int noteId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Note note = new Note();
+		try(
+			Connection con = ds.getConnection(); 
+			PreparedStatement ps = con.prepareStatement(SELECT_ONE_NOTE))
+		{
+			ps.setInt(1, noteId);
+			try(ResultSet rs = ps.executeQuery())
+			{
+				if(rs.next())
+				{
+					note.setNoteId(rs.getInt(1));
+					note.setNoteHeader(rs.getString(2));
+					note.setNoteContent(rs.getString(3));
+				}else {
+					System.out.println("Invalid ID");
+				}
+			}
+		}catch (Exception e) 
+		{
+			e.printStackTrace();
+			throw e;
+		}
+		return note;
 	}
 
 	@Override

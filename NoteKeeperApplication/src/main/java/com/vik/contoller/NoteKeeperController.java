@@ -23,4 +23,8 @@ public class NoteKeeperController {
 	{
 		return inks.getAllNotesService();
 	}
+	
+	public Note getNoteController(int noteId)throws Exception {
+		return inks.getNoteServise(noteId);
+	}
 }

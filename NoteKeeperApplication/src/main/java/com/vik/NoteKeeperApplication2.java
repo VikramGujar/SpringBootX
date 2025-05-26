@@ -23,10 +23,9 @@ public class NoteKeeperApplication2 {
 		{
 			NoteKeeperController notekeeper = ctx.getBean("nkc",NoteKeeperController.class);
 			
-			List<Note> list = new ArrayList<Note>();
-			list = notekeeper.getAllNotesContoller();
-			list.forEach(System.out::println);
-		
+			Note note = notekeeper.getNoteController(3);
+			System.out.println(note);
+			
 		}catch (Exception e) {
 			e.getMessage();
 			e.printStackTrace();

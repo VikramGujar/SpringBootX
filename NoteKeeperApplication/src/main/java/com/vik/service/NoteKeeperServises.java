@@ -24,4 +24,21 @@ public class NoteKeeperServises implements INoteKeeperService {
 		return nkp.getAllNotes();
 	}
 
+	@Override
+	public Note getNoteServise(int noteId) throws Exception {
+		return nkp.getNote(noteId);
+	}
+
+	@Override
+	public int deleteNoteServise(int noteId) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateNoteServise(int noteId, String newHeading, String newContent) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
