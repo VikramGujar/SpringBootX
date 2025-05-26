@@ -1,5 +1,9 @@
 package com.vik.sbeans;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -17,4 +21,8 @@ public class PersonDetails {
 	private String email;
 	private String education;
 	private String phonenumaber;
+	ArrayList<String> nikNames;
+	HashMap<String, String> favorites;
+	String friends[];
+	Details details;
 }
