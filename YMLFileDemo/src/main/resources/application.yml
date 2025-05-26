@@ -1,0 +1,38 @@
+
+# My Info
+my:
+    info:
+        name: Vikram
+        age: 22
+        address: Argade Gavhan 
+        number: 9577104555
+        degree: BCA
+# Array
+        knownCities:
+          - Ambad
+          - Smabhaji Nagar
+          - Hydrabad
+          - Pune
+# ArrayList
+        friends: 
+          - Vaibhav
+          - Suraj
+          - Pavan
+          - Kalpesh
+# Map
+        favorites:
+           Actor: RDJ
+           Character: Iron-man
+           Sport: Cricket
+# Object / HAS-A Property
+        details:
+           dob: 16-06-2002
+           school: ZP 
+           secondShcool: Matsyodri
+           highShcool: Matsyodari Collage
+           collage: Deogiri
+           perSSC: 82.40
+           perHSC: 89.67
+           perBCA: 62.53
+
+
