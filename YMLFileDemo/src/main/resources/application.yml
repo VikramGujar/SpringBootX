@@ -1,3 +1,11 @@
+#Spring App Name 
+spring:
+  application:
+     name: YmlFileDemoApplication
+# Configure user define yml file
+# User defined yml file will override the orignal content 
+  config:
+    import: info.yml
 
 # My Info
 my:
@@ -34,5 +42,4 @@ my:
            perSSC: 82.40
            perHSC: 89.67
            perBCA: 62.53
-
 

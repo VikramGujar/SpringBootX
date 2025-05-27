@@ -1,0 +1,15 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+spring:
+  application:
+    name: SPEL_DEMO
+  config:
+    import: com/vik/commons/info.properties
+digo:
+  name: Vikram
+  age: 22 
+  mri: 1500
+  ctscan: 2000
+  dibetic: 1000
+  bp: 500
