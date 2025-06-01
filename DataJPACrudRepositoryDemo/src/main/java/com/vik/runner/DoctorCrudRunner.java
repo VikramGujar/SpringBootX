@@ -14,19 +14,16 @@ import com.vik.service.ICrudRepoService;
 @Component
 public class DoctorCrudRunner implements CommandLineRunner {
 
-    private final CrudRepoService crudRepoService;
 
 	@Autowired
 	ICrudRepoService crudServ;
 
-    DoctorCrudRunner(CrudRepoService crudRepoService) {
-        this.crudRepoService = crudRepoService;
-    }
+
 
 	@Override
 	public void run(String... args) throws Exception {
 		
-		try{
+
 			
 			/*
 			String msg = crudServ.insertDoctor(new Doctor("Vikram","MBBS",1000.00));
@@ -43,13 +40,25 @@ public class DoctorCrudRunner implements CommandLineRunner {
 			List<Doctor> docList = List.of(doc4);
 			String msg = crudServ.insertAllDoc(docList);
 			System.out.println(msg);
+			
+			String msg = crudServ.getDocById(101);
+			System.out.println(msg);
+			
+			List<Integer> list = List.of(100,101,102,103,104,105,106,107);
+			Iterable<Doctor> docList = crudServ.getAllByIds(list);
+			docList.forEach(System.out::println);
+			
+			String msg = crudServ.updateDoc(107, "MBBS", 2000);
+			System.out.println(msg);
+			
 		 */
 			
-			
+		try {
+
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 
-	}
+	}// run method
 
-}
+}//class
