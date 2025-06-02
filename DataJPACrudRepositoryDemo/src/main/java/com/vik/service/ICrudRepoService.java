@@ -17,4 +17,8 @@ public interface ICrudRepoService {
 	public String updateDoc(int id, String qlf, double fees);
 	public Iterable<Doctor> getAllDocSorted(boolean ord, String ...args);
 	public Page<Doctor> getRecordByPage(int pageNo, int pageSize);
+	public List<Doctor> getSortedDataByJpa(boolean sort, Doctor doc);
+	public List<Doctor> getDoctorsByQualification(String qualification);
+	public List<Doctor> getDoctorsBetweenFees(Double from, Double to);
+	
 }

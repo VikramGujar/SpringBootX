@@ -66,14 +66,25 @@ public class DoctorCrudRunner implements CommandLineRunner {
 			System.out.println("Is first page "+pageDoc.isFirst());
 			System.out.println("Is last page "+pageDoc.isLast());
 			System.out.println("Is empty page "+pageDoc.isEmpty());	
+			
+			Doctor doc = new Doctor();
+			doc.setQualification("MBBS");
+			List<Doctor> list = crudServ.getSortedDataByJpa(true, doc);
+			list.forEach(System.out::println);
+			System.out.println(list.isEmpty());
+			
+			List<Doctor> list = crudServ.getDoctorsByQualification("MBBS");
+			list.forEach(System.out::println);
+			
+			
+			crudServ.getDoctorsBetweenFees(700.0, 1800.0).forEach(System.out::println);;
+			
+			
 		 */
 			
 		try {
 			
-		
 
-			
-			
 
 		}catch (Exception e) {
 			e.printStackTrace();

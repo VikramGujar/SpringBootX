@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -91,6 +92,25 @@ public class CrudRepoService implements ICrudRepoService {
 		PageRequest pg = PageRequest.of(pageNo, pageSize);
 		Page<Doctor> pgDoc = docRepo.findAll(pg);
 		return pgDoc;
+	}
+
+	@Override
+	public List<Doctor> getSortedDataByJpa(boolean sort, Doctor doc) {
+		Example<Doctor> ex = Example.of(doc);
+		Sort st = Sort.by(sort?Sort.Direction.ASC:Sort.Direction.DESC, "name");
+		return docRepo.findAll(ex);
+	}
+
+	@Override
+	public List<Doctor> getDoctorsByQualification(String qualification) {
+		List<Doctor> list = docRepo.findByQualification(qualification);
+		return list;
+	}
+
+	@Override
+	public List<Doctor> getDoctorsBetweenFees(Double from, Double to) {
+		
+		return docRepo.findByFeesBetween(from, to);
 	}
 
 }
