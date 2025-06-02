@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import com.vik.entity.Doctor;
@@ -51,9 +53,27 @@ public class DoctorCrudRunner implements CommandLineRunner {
 			String msg = crudServ.updateDoc(107, "MBBS", 2000);
 			System.out.println(msg);
 			
+			
+			crudServ.getAllDocSorted(false, "fees").forEach(System.out::println);
+			
+			Page<Doctor> pageDoc = crudServ.getRecordByPage(2, 3);
+			pageDoc.forEach(System.out::println);
+			System.out.println("===================================");
+			System.out.println("Page number is "+pageDoc.getNumber());
+			System.out.println("Number of records on page "+pageDoc.getNumberOfElements());
+			System.out.println("Total pages "+pageDoc.getTotalPages());
+			System.out.println("Total Records are "+pageDoc.getTotalElements());
+			System.out.println("Is first page "+pageDoc.isFirst());
+			System.out.println("Is last page "+pageDoc.isLast());
+			System.out.println("Is empty page "+pageDoc.isEmpty());	
 		 */
 			
 		try {
+			
+		
+
+			
+			
 
 		}catch (Exception e) {
 			e.printStackTrace();

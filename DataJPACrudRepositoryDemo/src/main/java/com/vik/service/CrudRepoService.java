@@ -1,10 +1,15 @@
 package com.vik.service;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
 import com.vik.entity.Doctor;
@@ -71,6 +76,21 @@ public class CrudRepoService implements ICrudRepoService {
 			return "Doctor updated Successfully!";
 		}
 		return "No doctor found for update";
+	}
+
+	@Override
+	public Iterable<Doctor> getAllDocSorted(boolean ord, String... args) {
+		
+		Sort sort = Sort.by(ord?Sort.Direction.ASC:Sort.Direction.DESC, args);
+		return docRepo.findAll(sort);
+
+	}
+
+	@Override
+	public Page<Doctor> getRecordByPage(int pageNo, int pageSize) {
+		PageRequest pg = PageRequest.of(pageNo, pageSize);
+		Page<Doctor> pgDoc = docRepo.findAll(pg);
+		return pgDoc;
 	}
 
 }

@@ -2,6 +2,8 @@ package com.vik.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.vik.entity.Doctor;
 
 public interface ICrudRepoService {
@@ -13,4 +15,6 @@ public interface ICrudRepoService {
 	public Iterable<Doctor> getAllByIds(List<Integer> ids);
 	public Iterable<Doctor> getAllDoc();
 	public String updateDoc(int id, String qlf, double fees);
+	public Iterable<Doctor> getAllDocSorted(boolean ord, String ...args);
+	public Page<Doctor> getRecordByPage(int pageNo, int pageSize);
 }
