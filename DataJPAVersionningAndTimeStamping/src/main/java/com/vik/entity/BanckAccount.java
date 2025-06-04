@@ -54,6 +54,7 @@ public class BanckAccount {
 	LocalDateTime accCreatedOn;
 	
 	@UpdateTimestamp
+	@Column(insertable = false) // Not allowed to insert only update possible 
 	LocalDateTime accLastUpdatedOn;
 	
 	

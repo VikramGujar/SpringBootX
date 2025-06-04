@@ -5,4 +5,5 @@ import com.vik.entity.BanckAccount;
 public interface IBankAccountService {
 
 	public String createAccount(BanckAccount acc);
+	public String withdrawMoney(Long accNo, Double ammount);
 }

@@ -15,10 +15,16 @@ public class BankRunner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		BanckAccount b1 = new BanckAccount("Ravi", "HYB", 90000.00, "Bank Of Telangana");
 		String msg = bnkSer.createAccount(b1);
 		System.out.println(msg);
+		*/
+		
+		String msg = bnkSer.withdrawMoney(100000000L, 30000.0);
+		System.out.println(msg);
+		
+		
 
 	}
 
