@@ -9,4 +9,5 @@ public interface IAssociateMapSer {
 	public String insertEmp(Employee emp);
 	public String inserPhn(List<PhoneNumber> phn);
 	public List<Employee> selectEmps();
+	public String deleteEmp(int id);
 }

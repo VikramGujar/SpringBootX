@@ -1,6 +1,7 @@
 package com.vik.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,19 @@ public class AssociateMapSerImpl implements IAssociateMapSer {
 	public List<Employee> selectEmps() {
 		
 		return assMapRepo.findAll();
+	}
+
+	@Override
+	public String deleteEmp(int id) {
+		Optional<Employee> byId = assMapRepo.findById(id);
+		
+		if(byId.isPresent())
+		{
+			Employee e = byId.get();
+			assMapRepo.delete(e);
+			return "Record with ID:"+id+" deleted";
+		}
+		return "Invalid ID";
 	}
 
 }

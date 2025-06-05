@@ -9,13 +9,20 @@ import org.springframework.stereotype.Component;
 
 import com.vik.entity.Employee;
 import com.vik.entity.PhoneNumber;
+import com.vik.service.AssociateMapSerImpl;
 import com.vik.service.IAssociateMapSer;
 
 @Component
 public class AssociateMappingTestRunner implements CommandLineRunner {
 
+    private final AssociateMapSerImpl associateMapSerImpl;
+
 	@Autowired
 	IAssociateMapSer ser;
+
+    AssociateMappingTestRunner(AssociateMapSerImpl associateMapSerImpl) {
+        this.associateMapSerImpl = associateMapSerImpl;
+    }
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -23,6 +30,7 @@ public class AssociateMappingTestRunner implements CommandLineRunner {
 		
 		
 		try {
+			/*
 			List<Employee> empList = ser.selectEmps();
 			empList.forEach(e -> 
 			{
@@ -33,6 +41,10 @@ public class AssociateMappingTestRunner implements CommandLineRunner {
 				});
 				System.out.println("===============================");
 			});
+			*/
+			
+			String msg = ser.deleteEmp(1113);
+			System.out.println(msg);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
