@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,8 @@ import lombok.Setter;
 public class Teacher {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "gen", sequenceName = "teacher_seq" , initialValue = 101, allocationSize = 10)
+	@GeneratedValue(generator = "gen", strategy = GenerationType.SEQUENCE)
 	private Integer tid;
 	
 	@NonNull
