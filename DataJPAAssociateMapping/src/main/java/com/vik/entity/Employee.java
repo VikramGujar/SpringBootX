@@ -43,7 +43,7 @@ public class Employee {
 	@Column(length = 20)
 	String city;
 	
-	@OneToMany(targetEntity = PhoneNumber.class, cascade = CascadeType.ALL, mappedBy = "emp")
+	@OneToMany(targetEntity = PhoneNumber.class, cascade = CascadeType.ALL, mappedBy ="emp")
 	Set<PhoneNumber> nums;
 
 	

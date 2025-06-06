@@ -41,10 +41,13 @@ public class AssociateMappingTestRunner implements CommandLineRunner {
 				});
 				System.out.println("===============================");
 			});
-			*/
 			
+						
 			String msg = ser.deleteEmp(1113);
 			System.out.println(msg);
+			
+			*/
+
 			
 		}catch (Exception e) {
 			e.printStackTrace();
