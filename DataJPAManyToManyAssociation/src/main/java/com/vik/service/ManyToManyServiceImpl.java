@@ -9,7 +9,7 @@ import com.vik.repository.IStudentRepository;
 import com.vik.repository.ITeacherRepository;
 
 @Service
-public class IManyToManyServiceImpl implements IManyToManyService {
+public class ManyToManyServiceImpl implements IManyToManyService {
 
 	@Autowired
 	ITeacherRepository teach;
@@ -27,6 +27,12 @@ public class IManyToManyServiceImpl implements IManyToManyService {
 	public String addStudentWithTeachers(Student s) {
 		Integer sid = stud.save(s).getSid();
 		return "Student and his teachers saved with ID : "+sid;
+	}
+
+	@Override
+	public Iterable<Teacher> getAllTeachers() {
+		
+		return teach.findAll();
 	}
 
 }

@@ -35,5 +35,12 @@ public class Student {
 	
 	@ManyToMany(targetEntity = Teacher.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "students")
 	private List<Teacher> teachers;
+
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sName=" + sName + "]";
+	}
+	
+	
 	
 }

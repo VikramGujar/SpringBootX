@@ -41,9 +41,16 @@ public class Teacher {
 	@Column(length = 20)
 	private String tSubject;
 	
-	@ManyToMany(targetEntity = Student.class,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(targetEntity = Student.class,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "TEACHER_STUDENT_MTM", 
 	joinColumns = @JoinColumn(name="TEACHER_ID", referencedColumnName = "tid"),// Owning side 
 	inverseJoinColumns = @JoinColumn(name="STUDENT_ID", referencedColumnName = "sid")) // Non owning side 
 	private List<Student> students;
+
+	@Override
+	public String toString() {
+		return "Teacher [tid=" + tid + ", tName=" + tName + ", tSubject=" + tSubject + "]";
+	}
+	
+	
 }

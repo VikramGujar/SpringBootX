@@ -7,4 +7,5 @@ public interface IManyToManyService {
 
 	public String addTeacherWithStudents(Teacher t);
 	public String addStudentWithTeachers(Student s);
+	public Iterable<Teacher> getAllTeachers();
 }

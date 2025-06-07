@@ -1,12 +1,9 @@
 package com.vik.runner;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.vik.entity.Student;
 import com.vik.entity.Teacher;
 import com.vik.service.IManyToManyService;
 
@@ -18,7 +15,7 @@ public class ManyToManyTestRunner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		Student s1 = new Student("Ravi");
 		Student s2 = new Student("Viky");
 		Student s3 = new Student("Mavi");
@@ -56,8 +53,14 @@ public class ManyToManyTestRunner implements CommandLineRunner {
 		System.out.println(msg7);
 		String msg8 = ser.addTeacherWithStudents(t4);
 		System.out.println(msg8);
+		*/
 		
 		
+		Iterable<Teacher> allTeachers = ser.getAllTeachers();
+		allTeachers.forEach(t -> {
+			System.out.println(t);
+			t.getStudents().forEach(System.out::println);
+		});
 		
 		
 	}
