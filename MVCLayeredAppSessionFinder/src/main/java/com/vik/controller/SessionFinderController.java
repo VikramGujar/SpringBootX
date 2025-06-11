@@ -14,7 +14,7 @@ public class SessionFinderController {
 	@Autowired
 	ISessionFinderService ser;
 	
-	@RequestMapping("/")
+	@RequestMapping({"/", "/home"})
 	public String home()
 	{
 		return "welcome";

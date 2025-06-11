@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="MVCDataRenderingDemo" path="/MVCDataRenderingDemo" reloadable="true" source="org.eclipse.jst.jee.server:MVCDataRenderingDemo"/><Context docBase="MVCProject1" path="/MVCProject1" reloadable="true" source="org.eclipse.jst.jee.server:MVCProject1"/><Context docBase="MVCDataRenderingReturnModel" path="/MVCDataRenderingReturnModel" reloadable="true" source="org.eclipse.jst.jee.server:MVCDataRenderingReturnModel"/><Context docBase="MVCDataRenderingForwardRequest" path="/MVCDataRenderingForwardRequest" reloadable="true" source="org.eclipse.jst.jee.server:MVCDataRenderingForwardRequest"/><Context docBase="MVCObjectsByDispatcherServlet" path="/MVCObjectsByDispatcherServlet" reloadable="true" source="org.eclipse.jst.jee.server:MVCObjectsByDispatcherServlet"/><Context docBase="MVCLayeredAppSessionFinder" path="/MVCLayeredAppSessionFinder" reloadable="true" source="org.eclipse.jst.jee.server:MVCLayeredAppSessionFinder"/></Host>
+      <Context docBase="MVCFormDataBinding" path="/MVCFormDataBinding" reloadable="true" source="org.eclipse.jst.jee.server:MVCFormDataBinding"/></Host>
     </Engine>
   </Service>
 </Server>
