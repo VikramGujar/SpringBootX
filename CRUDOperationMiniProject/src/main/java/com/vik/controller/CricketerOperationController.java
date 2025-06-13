@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.vik.entity.Players;
@@ -47,4 +48,16 @@ public class CricketerOperationController {
 		return "redirect:/show";
 	}
 	
+	@GetMapping("edit")
+	public String editeForm(@ModelAttribute("plyr") Players pl, @RequestParam("no") int id) {
+		return "show_edit_form";
+	}
+	
+	@PostMapping("edit")
+	public String editeData(@ModelAttribute("plyr") Players pl, @RequestParam("no") int id, RedirectAttributes rd) {
+		Players plr = ser.getPlayerById(id);
+		ser.addPlayer(plr);
+		rd.addFlashAttribute("Result",id+" ID Record is update");
+		return "redirect:/show";
+	}
 }

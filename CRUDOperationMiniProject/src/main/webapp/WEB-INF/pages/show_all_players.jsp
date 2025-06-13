@@ -11,6 +11,7 @@
 			<th>NAME</th>
 			<th>Country</th>
 			<th>IPL-TEAM</th>
+			<th>Operations</th>
 		</tr>
 		
 		<tg:forEach var="player" items="${players}">
@@ -19,6 +20,10 @@
 			<td>${player.name }</td>
 			<td>${player.contry }</td>
 			<td>${player.iplTeam }</td>
+			<td> 
+				<span style="padding: 0px 10px"> <a href="edit?no=${player.id }">Edit</a></span>
+				<span style="padding: 0px 10px"> <a href="delete?no=${player.id }">Delete</a></span>
+			</td>
 		
 		</tr>
 		</tg:forEach>
@@ -32,8 +37,8 @@
 
 	
 <tg:choose>
-	<tg:when test="${!empty addResult}">
-	<h3 style="color: green;">${addResult}</h3>
+	<tg:when test="${!empty Result}">
+	<h3 style="color: green;">${Result}</h3>
 	</tg:when>
 	<tg:otherwise>
 	<br>
