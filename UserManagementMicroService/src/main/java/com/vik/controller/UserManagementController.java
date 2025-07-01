@@ -52,7 +52,7 @@ public class UserManagementController
 		return res;
 	}
 	
-	@GetMapping("/auth/userById/{id}")
+	@GetMapping("/any/userById/{id}")
 	public ResponseEntity<User> viewUserById(@PathVariable Integer id)
 	{
 		User user = ser.getUserById(id);
@@ -60,7 +60,7 @@ public class UserManagementController
 		return res;
 	}
 	
-	@GetMapping("/auth/allUser")
+	@GetMapping("/any/allUser")
 	public ResponseEntity<List<User>> showAllUsers() 
 	{
 		List<User> allUsers = ser.getAllUsers();
@@ -68,7 +68,7 @@ public class UserManagementController
 		return res;
 	}
 	
-	@DeleteMapping("/auth/delete/{id}")
+	@DeleteMapping("/admin/delete/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable Integer id)
 	{
 		String msg = ser.removeUserById(id);
@@ -76,7 +76,7 @@ public class UserManagementController
 		return res;
 	}
 	
-	@DeleteMapping("/auth/deleteAll")
+	@DeleteMapping("/admin/deleteAll")
 	public ResponseEntity<String> deleteAllUsers()
 	{
 		String msg = ser.removeAllUsers();
@@ -84,7 +84,7 @@ public class UserManagementController
 		return res;
 	}
 	
-	@PutMapping("/auth/updateUser")
+	@PutMapping("/any/updateUser")
 	public ResponseEntity<String> userUpdate(@RequestBody User user)
 	{
 		String msg = ser.updateUser(user);
